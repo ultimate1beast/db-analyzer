@@ -17,6 +17,28 @@
     <description>REST API for the PrivSense platform</description>
 
     <dependencies>
+        <!-- Internal module dependencies -->
+        <dependency>
+            <groupId>com.cgi.privsense</groupId>
+            <artifactId>privsense-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cgi.privsense</groupId>
+            <artifactId>privsense-db-scanner</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cgi.privsense</groupId>
+            <artifactId>privsense-data-sampler</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cgi.privsense</groupId>
+            <artifactId>privsense-pii-detector</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
         <!-- Spring Boot dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -34,12 +56,24 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
-        
-        <!-- Lombok for reducing boilerplate code -->
+          <!-- Lombok for reducing boilerplate code -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+        
+        <!-- OpenAPI documentation -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+        <!-- Base de données H2 pour le développement/test -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
         
         <!-- Test dependencies -->

@@ -49,4 +49,24 @@ public class ForeignKeyMetadata {
      * The schema of the referenced table.
      */
     private String referencedTableSchema;
+    
+    /**
+     * Gets the name of the table being referenced by this foreign key.
+     * Alternative name for backward compatibility.
+     *
+     * @return the name of the referenced table
+     */
+    public String getReferencedTableName() {
+        return referencedTable;
+    }
+    
+    /**
+     * Gets the name of the column being referenced by this foreign key.
+     * Alternative name for backward compatibility.
+     *
+     * @return the name of the referenced column
+     */
+    public String getReferencedColumnName() {
+        return referencedColumn;
+    }
 }

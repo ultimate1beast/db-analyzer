@@ -58,3 +58,12 @@ Thumbs.db
 # Podman
 .env
 podman-volumes/
+
+
+#vscode
+.vscode/
+.vscode-test/
+.vscode-test-*
+
+workflow.md
+implementation best practice.md

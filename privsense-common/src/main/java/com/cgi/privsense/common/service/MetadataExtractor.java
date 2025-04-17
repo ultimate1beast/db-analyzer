@@ -2,6 +2,7 @@ package com.cgi.privsense.common.service;
 
 import com.cgi.privsense.common.model.TableMetadata;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 /**
@@ -17,6 +18,15 @@ public interface MetadataExtractor {
      * @throws com.cgi.privsense.common.exception.MetadataExtractionException if metadata extraction fails
      */
     List<TableMetadata> extractAllTablesMetadata();
+    
+    /**
+     * Extracts metadata for all tables in the database using the provided data source.
+     *
+     * @param dataSource the data source to use for extraction
+     * @return a list of TableMetadata objects
+     * @throws com.cgi.privsense.common.exception.MetadataExtractionException if metadata extraction fails
+     */
+    List<TableMetadata> extractAllTables(DataSource dataSource);
 
     /**
      * Extracts metadata for a specific table.
@@ -26,13 +36,33 @@ public interface MetadataExtractor {
      * @throws com.cgi.privsense.common.exception.MetadataExtractionException if metadata extraction fails
      */
     TableMetadata extractTableMetadata(String tableName);
+    
+    /**
+     * Extracts metadata for a specific table using the provided data source.
+     *
+     * @param dataSource the data source to use for extraction
+     * @param tableName the name of the table
+     * @return the TableMetadata for the specified table
+     * @throws com.cgi.privsense.common.exception.MetadataExtractionException if metadata extraction fails
+     */
+    TableMetadata extractTableMetadata(DataSource dataSource, String tableName);
 
     /**
      * Extracts metadata for tables matching a pattern.
      *
-     * @param pattern the pattern to match table names against (database-specific)
+     * @param pattern the pattern to match table names against
      * @return a list of TableMetadata objects for tables matching the pattern
      * @throws com.cgi.privsense.common.exception.MetadataExtractionException if metadata extraction fails
      */
-    List<TableMetadata> extractTablesMetadata(String pattern);
+    List<TableMetadata> searchTables(String pattern);
+    
+    /**
+     * Extracts metadata for tables matching a pattern using the provided data source.
+     *
+     * @param dataSource the data source to use for extraction
+     * @param pattern the pattern to match table names against
+     * @return a list of TableMetadata objects for tables matching the pattern
+     * @throws com.cgi.privsense.common.exception.MetadataExtractionException if metadata extraction fails
+     */
+    List<TableMetadata> searchTables(DataSource dataSource, String pattern);
 }

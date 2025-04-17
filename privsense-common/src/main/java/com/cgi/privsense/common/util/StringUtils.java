@@ -40,15 +40,14 @@ public final class StringUtils {
      *
      * @param input the input to check
      * @return true if the input might contain SQL injection, false otherwise
-     */
-    public static boolean containsSqlInjection(String input) {
+     */    public static boolean containsSqlInjection(String input) {
         if (input == null) {
             return false;
         }
         
         // Simple pattern to detect common SQL injection attempts
         Pattern pattern = Pattern.compile(
-            "(?i)\\b(select|insert|update|delete|drop|alter|exec|union|create|where)\\b|--|;\\s*\\w+\\s*--|/\\*.*\\*/",
+            "(?i)\\b(select|insert|update|delete|drop|alter|exec|union|create|where)\\b|--|;\\s*\\w+\\s*--|/\\*.*\\*/|\\bOR\\s+[\\d']+\\s*=\\s*[\\d']+",
             Pattern.CASE_INSENSITIVE
         );
         

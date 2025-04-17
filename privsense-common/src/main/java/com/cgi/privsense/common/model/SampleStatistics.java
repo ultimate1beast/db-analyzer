@@ -46,6 +46,11 @@ public class SampleStatistics {
     private String maxValue;
     
     /**
+     * The average length of string values in the sample.
+     */
+    private double averageLength;
+    
+    /**
      * Distribution of values in the sample, mapping values to their frequency.
      */
     @Builder.Default
@@ -62,5 +67,14 @@ public class SampleStatistics {
             return 0.0;
         }
         return (double) distinctValueCount / (valueDistribution.values().stream().mapToInt(Integer::intValue).sum());
+    }
+    
+    /**
+     * Gets the average length of string values in the sample.
+     *
+     * @return the average length of values
+     */
+    public double getAverageLength() {
+        return averageLength;
     }
 }

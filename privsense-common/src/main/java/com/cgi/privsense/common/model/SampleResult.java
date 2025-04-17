@@ -48,4 +48,18 @@ public class SampleResult {
      * Time taken to execute the sampling operation in milliseconds.
      */
     private long executionTimeMs;
+    
+    /**
+     * The strategy used for sampling the data.
+     */
+    private String samplingStrategy;
+    
+    /**
+     * Gets the sampling strategy used.
+     *
+     * @return the sampling strategy
+     */
+    public String getSamplingStrategy() {
+        return samplingStrategy;
+    }
 }
